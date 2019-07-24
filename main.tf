@@ -1,5 +1,5 @@
 locals {
-  preshared_key_provided     = "${length(var.tunnel1_preshared_key)}" > 0 && "${length(var.tunnel2_preshared_key)}" > 0
+  preshared_key_provided     = "${length(var.tunnel1_preshared_key) > 0}" && "${length(var.tunnel2_preshared_key) > 0}"
   preshared_key_not_provided = false == local.preshared_key_provided
   internal_cidr_provided     = length(var.tunnel1_inside_cidr) > 0 && length(var.tunnel2_inside_cidr) > 0
   internal_cidr_not_provided = false == local.internal_cidr_provided
